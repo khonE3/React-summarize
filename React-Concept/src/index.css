@@ -347,10 +347,14 @@ p, h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 1024px) {
   .lg\:hidden { display: none; }
-  .lg\:translate-x-0 { transform: translateX(0); }
+  .lg\:block { display: block; }
+  .lg\:flex { display: flex; }
+  .lg\:translate-x-0 { transform: translateX(0) !important; }
   .lg\:static { position: static; }
   .lg\:z-0 { z-index: 0; }
   .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+  .lg\:pl-72 { padding-left: 18rem; }
+  .lg\:ml-72 { margin-left: 18rem; }
   .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
@@ -439,4 +443,79 @@ pre::-webkit-scrollbar-thumb {
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 .flex-shrink-0 { flex-shrink: 0; }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   ADDITIONAL RESPONSIVE & LAYOUT FIXES
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Ease transitions */
+.ease-in-out { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Width utilities */
+.w-full { width: 100%; }
+.max-w-none { max-width: none; }
+
+/* Additional padding utilities */
+.pl-72 { padding-left: 18rem; }
+.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.pt-8 { padding-top: 2rem; }
+
+/* Mobile-first sidebar behavior - ลบออก เพราะใช้ JS แทน */
+
+/* Mobile navigation menu */
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile-nav {
+    display: flex;
+  }
+  .desktop-nav {
+    display: none;
+  }
+}
+
+/* Container max widths */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+
+/* Touch-friendly tap targets for mobile */
+@media (max-width: 767px) {
+  button, a {
+    min-height: 44px;
+  }
+}
+
+/* Prevent body scroll when mobile sidebar is open */
+body.sidebar-open {
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  body.sidebar-open {
+    overflow: auto;
+  }
+}
 

@@ -6,7 +6,7 @@
  * ╚══════════════════════════════════════════════════════════════════════════════╝
  */
 
-import type { Concept, HookInfo } from '../types'
+import type { Concept, HookInfo, NavItem } from '../types'
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // REACT CONCEPTS LIST

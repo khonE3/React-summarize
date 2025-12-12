@@ -7,12 +7,24 @@
  */
 
 import { Link, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { concepts, categories } from '../../data'
 import { useUIStore } from '../../store'
 
 export function Sidebar() {
   const location = useLocation()
   const { sidebarOpen, setSidebarOpen } = useUIStore()
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024)
+    checkDesktop()
+    window.addEventListener('resize', checkDesktop)
+    return () => window.removeEventListener('resize', checkDesktop)
+  }, [])
+
+  // บน Desktop แสดง sidebar ตลอด, บน Mobile ใช้ toggle
+  const showSidebar = isDesktop || sidebarOpen
 
   // Group concepts by category
   const groupedConcepts = categories.map(category => ({
@@ -22,10 +34,10 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Overlay for mobile */}
-      {sidebarOpen && (
+      {/* Overlay for mobile only */}
+      {!isDesktop && sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/50 z-40"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -33,14 +45,15 @@ export function Sidebar() {
       {/* Sidebar */}
       <aside
         className={`
-          fixed top-16 left-0 z-40 h-[calc(100vh-4rem)] w-72
+          fixed top-16 left-0 h-[calc(100vh-4rem)] w-72
           bg-white dark:bg-gray-900
           border-r border-gray-200 dark:border-gray-700
-          transform transition-transform duration-300
+          transition-transform duration-300 ease-in-out
           overflow-y-auto
-          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
-          lg:translate-x-0 lg:static lg:z-0
+          ${isDesktop ? 'z-30' : 'z-40'}
+          ${showSidebar ? 'translate-x-0' : '-translate-x-full'}
         `}
+        style={{ scrollbarWidth: 'thin' }}
       >
         <nav className="p-4 space-y-6">
           {groupedConcepts.map(category => (

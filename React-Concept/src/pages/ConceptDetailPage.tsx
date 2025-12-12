@@ -7,7 +7,7 @@
  */
 
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { Card, Badge, CodeBlock, Button } from '../components'
+import { Card, CodeBlock, Button } from '../components'
 import { concepts, categories } from '../data'
 
 // Concept content data
