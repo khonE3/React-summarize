@@ -14,24 +14,24 @@ export function HomePage() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="text-center py-12">
-        <div className="text-6xl mb-4">⚛️</div>
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      <section className="text-center py-8 sm:py-12">
+        <div className="text-5xl sm:text-6xl mb-4">⚛️</div>
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">
           React Concept
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+        <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
           สรุปความรู้ React ทั้งหมดแบบครบถ้วน พร้อมตัวอย่างโค้ดที่ใช้งานได้จริง
-          <br />
-          ตั้งแต่พื้นฐานจนถึงขั้นสูง
+          <br className="hidden sm:block" />
+          <span className="hidden sm:inline">ตั้งแต่พื้นฐานจนถึงขั้นสูง</span>
         </p>
-        <div className="flex gap-4 justify-center">
-          <Link to="/concepts/jsx">
-            <Button variant="primary" size="lg">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+          <Link to="/concepts/jsx" className="w-full sm:w-auto">
+            <Button variant="primary" size="lg" className="w-full sm:w-auto">
               🚀 เริ่มเรียนรู้
             </Button>
           </Link>
-          <Link to="/concepts">
-            <Button variant="outline" size="lg">
+          <Link to="/concepts" className="w-full sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto">
               📚 ดู Concepts ทั้งหมด
             </Button>
           </Link>
@@ -39,22 +39,22 @@ export function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card className="text-center">
-          <div className="text-3xl font-bold text-blue-600">{concepts.length}</div>
-          <div className="text-sm text-gray-500">Concepts</div>
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <Card className="text-center p-4">
+          <div className="text-2xl sm:text-3xl font-bold text-blue-600">{concepts.length}</div>
+          <div className="text-xs sm:text-sm text-gray-500">Concepts</div>
         </Card>
-        <Card className="text-center">
-          <div className="text-3xl font-bold text-green-600">{hooksInfo.length}</div>
-          <div className="text-sm text-gray-500">Hooks</div>
+        <Card className="text-center p-4">
+          <div className="text-2xl sm:text-3xl font-bold text-green-600">{hooksInfo.length}</div>
+          <div className="text-xs sm:text-sm text-gray-500">Hooks</div>
         </Card>
-        <Card className="text-center">
-          <div className="text-3xl font-bold text-purple-600">{categories.length}</div>
-          <div className="text-sm text-gray-500">Categories</div>
+        <Card className="text-center p-4">
+          <div className="text-2xl sm:text-3xl font-bold text-purple-600">{categories.length}</div>
+          <div className="text-xs sm:text-sm text-gray-500">Categories</div>
         </Card>
-        <Card className="text-center">
-          <div className="text-3xl font-bold text-orange-600">100%</div>
-          <div className="text-sm text-gray-500">Free</div>
+        <Card className="text-center p-4">
+          <div className="text-2xl sm:text-3xl font-bold text-orange-600">100%</div>
+          <div className="text-xs sm:text-sm text-gray-500">Free</div>
         </Card>
       </section>
 

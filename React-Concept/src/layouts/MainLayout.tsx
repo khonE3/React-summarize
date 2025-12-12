@@ -21,7 +21,7 @@ export function MainLayout() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 overflow-x-hidden">
       <Header />
       
       <div className="flex relative">
@@ -30,10 +30,10 @@ export function MainLayout() {
         
         {/* Main Content - Desktop มี margin-left สำหรับ sidebar */}
         <main 
-          className="flex-1 min-h-[calc(100vh-4rem)] w-full transition-all duration-300"
+          className="flex-1 min-h-[calc(100vh-4rem)] w-full transition-all duration-300 overflow-x-hidden"
           style={{ marginLeft: isDesktop ? '18rem' : '0' }}
         >
-          <div className="w-full max-w-none px-4 py-6 sm:px-6 lg:px-8">
+          <div className="w-full max-w-none px-3 py-4 sm:px-6 sm:py-6 lg:px-8">
             <Outlet />
           </div>
         </main>

@@ -28,9 +28,9 @@ export function Card({
       `}
     >
       {(title || description) && (
-        <div className="px-6 py-4 border-b border-gray-100 dark:border-gray-700">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-100 dark:border-gray-700">
           {title && (
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
               {title}
             </h3>
           )}
@@ -42,12 +42,12 @@ export function Card({
         </div>
       )}
       
-      <div className="px-6 py-4">
+      <div className="px-4 sm:px-6 py-3 sm:py-4">
         {children}
       </div>
       
       {footer && (
-        <div className="px-6 py-4 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-100 dark:border-gray-700">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-100 dark:border-gray-700">
           {footer}
         </div>
       )}
