@@ -12,25 +12,25 @@ import { concepts, categories, hooksInfo } from '../data'
 
 export function HomePage() {
   return (
-    <div className="space-y-8 sm:space-y-12">
+    <div className="space-y-6 sm:space-y-8 md:space-y-12">
       {/* Hero Section */}
-      <section className="text-center py-6 sm:py-12">
-        <div className="text-5xl sm:text-6xl mb-4">⚛️</div>
-        <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 px-4">
+      <section className="text-center py-4 sm:py-6 md:py-12">
+        <div className="text-4xl sm:text-5xl md:text-6xl mb-3 sm:mb-4">⚛️</div>
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 md:mb-4 px-3">
           React Concept
         </h1>
-        <p className="text-sm sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-8 px-4 leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-8 px-3 leading-relaxed">
           สรุปความรู้ React ทั้งหมดแบบครบถ้วน 
           พร้อมตัวอย่างโค้ดที่ใช้งานได้จริง
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 max-w-md sm:max-w-none mx-auto">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center px-3 max-w-md sm:max-w-none mx-auto">
           <Link to="/concepts/jsx" className="w-full sm:w-auto">
-            <Button variant="primary" size="lg" className="w-full sm:w-auto">
+            <Button variant="primary" size="lg" className="w-full sm:w-auto text-sm sm:text-base">
               🚀 เริ่มเรียนรู้
             </Button>
           </Link>
           <Link to="/concepts" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto text-sm sm:text-base">
               📚 ดู Concepts ทั้งหมด
             </Button>
           </Link>

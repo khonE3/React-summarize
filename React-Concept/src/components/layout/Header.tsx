@@ -26,18 +26,18 @@ export function Header() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-[100] bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="sticky top-0 z-[100] bg-white/98 dark:bg-gray-900/98 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+      <div className="px-2 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-12 sm:h-14 md:h-16">
           {/* Left: Logo & Menu Button */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             {/* Sidebar Toggle - Show on all screens */}
             <button
               onClick={toggleSidebar}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-1 sm:p-1.5 md:p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="Toggle sidebar"
             >
-              <svg className="w-6 h-6 text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {sidebarOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -46,11 +46,8 @@ export function Header() {
               </svg>
             </button>
             
-            <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl">⚛️</span>
-              <span className="font-bold text-lg sm:text-xl text-gray-900 dark:text-white">
-                React Concept
-              </span>
+            <Link to="/" className="flex items-center gap-1.5">
+              <span className="text-lg sm:text-xl md:text-2xl">⚛️</span>
             </Link>
           </div>
 

@@ -32,10 +32,12 @@ export function MainLayout() {
         
         {/* Main Content - Desktop และ sidebar เปิดจึงมี margin */}
         <main 
-          className="flex-1 min-h-[calc(100vh-4rem)] w-full transition-all duration-300 overflow-x-hidden"
-          style={{ marginLeft: isDesktop && sidebarOpen ? '18rem' : '0' }}
+          className="flex-1 min-h-[calc(100vh-3rem)] sm:min-h-[calc(100vh-3.5rem)] md:min-h-[calc(100vh-4rem)] w-full transition-all duration-300 overflow-x-hidden"
+          style={{ 
+            marginLeft: isDesktop && sidebarOpen ? (window.innerWidth >= 768 ? '18rem' : window.innerWidth >= 640 ? '16rem' : '14rem') : '0' 
+          }}
         >
-          <div className="w-full max-w-none px-3 py-4 sm:px-6 sm:py-6 lg:px-8">
+          <div className="w-full max-w-none px-2 py-3 sm:px-3 sm:py-4 md:px-6 md:py-6 lg:px-8">
             <Outlet />
           </div>
         </main>
