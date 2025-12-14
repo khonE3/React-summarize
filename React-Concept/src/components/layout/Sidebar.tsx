@@ -23,8 +23,8 @@ export function Sidebar() {
     return () => window.removeEventListener('resize', checkDesktop)
   }, [])
 
-  // บน Desktop แสดง sidebar ตลอด, บน Mobile ใช้ toggle
-  const showSidebar = isDesktop || sidebarOpen
+  // แสดง sidebar เมื่อ: Desktop และ sidebarOpen เป็น true, หรือ Mobile และ sidebarOpen เป็น true
+  const showSidebar = sidebarOpen
 
   // Group concepts by category
   const groupedConcepts = categories.map(category => ({
@@ -37,7 +37,7 @@ export function Sidebar() {
       {/* Overlay for mobile only */}
       {!isDesktop && sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40"
+          className="fixed inset-0 bg-black/50 z-[45]"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -50,7 +50,7 @@ export function Sidebar() {
           border-r border-gray-200 dark:border-gray-700
           transition-transform duration-300 ease-in-out
           overflow-y-auto
-          ${isDesktop ? 'z-30' : 'z-40'}
+          ${isDesktop ? 'z-30' : 'z-[50]'}
           ${showSidebar ? 'translate-x-0' : '-translate-x-full'}
         `}
         style={{ scrollbarWidth: 'thin' }}

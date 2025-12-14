@@ -5,8 +5,10 @@
  */
 
 import { useEffect, useState } from 'react'
+import { useUIStore } from '../../store'
 
 export function Footer() {
+  const { sidebarOpen } = useUIStore()
   const [isDesktop, setIsDesktop] = useState(false)
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export function Footer() {
   return (
     <footer 
       className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 transition-all duration-300"
-      style={{ marginLeft: isDesktop ? '18rem' : '0' }}
+      style={{ marginLeft: isDesktop && sidebarOpen ? '18rem' : '0' }}
     >
       <div className="w-full px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">

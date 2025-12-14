@@ -12,19 +12,18 @@ import { concepts, categories, hooksInfo } from '../data'
 
 export function HomePage() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 sm:space-y-12">
       {/* Hero Section */}
-      <section className="text-center py-8 sm:py-12">
+      <section className="text-center py-6 sm:py-12">
         <div className="text-5xl sm:text-6xl mb-4">⚛️</div>
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 px-4">
+        <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 px-4">
           React Concept
         </h1>
-        <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
-          สรุปความรู้ React ทั้งหมดแบบครบถ้วน พร้อมตัวอย่างโค้ดที่ใช้งานได้จริง
-          <br className="hidden sm:block" />
-          <span className="hidden sm:inline">ตั้งแต่พื้นฐานจนถึงขั้นสูง</span>
+        <p className="text-sm sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-8 px-4 leading-relaxed">
+          สรุปความรู้ React ทั้งหมดแบบครบถ้วน 
+          พร้อมตัวอย่างโค้ดที่ใช้งานได้จริง
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 max-w-md sm:max-w-none mx-auto">
           <Link to="/concepts/jsx" className="w-full sm:w-auto">
             <Button variant="primary" size="lg" className="w-full sm:w-auto">
               🚀 เริ่มเรียนรู้
@@ -60,22 +59,22 @@ export function HomePage() {
 
       {/* Categories */}
       <section>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
           📂 หมวดหมู่ทั้งหมด
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {categories.map(category => {
             const count = concepts.filter(c => c.category === category.id).length
             return (
               <Link key={category.id} to={`/concepts?category=${category.id}`}>
                 <Card hoverable className="h-full">
-                  <div className="flex items-center gap-4">
-                    <span className="text-4xl">{category.icon}</span>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <span className="text-3xl sm:text-4xl flex-shrink-0">{category.icon}</span>
+                    <div className="min-w-0">
+                      <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">
                         {category.nameTh}
                       </h3>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-xs sm:text-sm text-gray-500">
                         {count} concepts
                       </p>
                     </div>
@@ -89,26 +88,26 @@ export function HomePage() {
 
       {/* Featured Concepts */}
       <section>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
           ⭐ Concepts ยอดนิยม
         </h2>
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
           {concepts.slice(0, 6).map(concept => (
             <Link key={concept.id} to={`/concepts/${concept.slug}`}>
               <Card hoverable className="h-full">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">{concept.icon}</span>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <span className="text-2xl sm:text-3xl flex-shrink-0">{concept.icon}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">
                         {concept.title}
                       </h3>
                       <Badge variant="primary">{concept.category}</Badge>
                     </div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                       {concept.titleTh}
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-2 line-clamp-2">
                       {concept.description}
                     </p>
                   </div>
